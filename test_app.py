@@ -20,5 +20,14 @@ def test_subtract_numbers_success():
     json_data = response.get_json()
     assert response.status_code == 200
     assert json_data["result"] == 7
+
+def test_multiply_numbers_success():
+    client = app.test_client()
+    response = client.get("/multiply?a=6&b=5")
+    json_data = response.get_json()
+    assert response.status_code == 200
+    assert json_data["result"] == 30
+
+ 
  
  
