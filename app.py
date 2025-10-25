@@ -15,4 +15,12 @@ def add_numbers():
     except ValueError:
         return jsonify({"error": "Invalid input"}), 400
  
+@app.route("/subtract", methods=["GET"])
+def subtract_numbers():
+    try:
+        a = int(request.args.get("a", 0))
+        b = int(request.args.get("b", 0))
+        return jsonify({"result": a - b})
+    except ValueError:
+        return jsonify({"error": "Invalid input"}), 400
  

@@ -12,3 +12,13 @@ def test_add_numbers_success():
     json_data = response.get_json()
     assert response.status_code == 200
     assert json_data["result"] == 12
+
+ 
+def test_subtract_numbers_success():
+    client = app.test_client()
+    response = client.get("/subtract?a=10&b=3")
+    json_data = response.get_json()
+    assert response.status_code == 200
+    assert json_data["result"] == 7
+ 
+ 
