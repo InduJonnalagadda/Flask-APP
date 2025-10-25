@@ -5,3 +5,10 @@ def test_home():
     response = client.get("/")
     assert response.status_code == 200
     assert b"Hello, CI/CD!" in response.data
+
+def test_add_numbers_success():
+    client = app.test_client()
+    response = client.get("/add?a=5&b=7")
+    json_data = response.get_json()
+    assert response.status_code == 200
+    assert json_data["result"] == 12
