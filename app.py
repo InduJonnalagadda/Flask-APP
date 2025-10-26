@@ -35,5 +35,13 @@ def multiply_numbers():
     except ValueError:
         return jsonify({"error": "Invalid input"}), 400
  
-
+@app.route("/divide", methods=["GET"])
+def divide_numbers():
+    try:
+        a = int(request.args.get("a", 0))
+        b = int(request.args.get("b", 0))
+        return jsonify({"result": a / b})
+    except ValueError:
+        return jsonify({"error": "Invalid input"}), 400
+ 
  

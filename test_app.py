@@ -28,6 +28,13 @@ def test_multiply_numbers_success():
     assert response.status_code == 200
     assert json_data["result"] == 30
 
+def test_divide_numbers_success():
+    client = app.test_client()
+    response = client.get("/divide?a=6&b=3")
+    json_data = response.get_json()
+    assert response.status_code == 200
+    assert json_data["result"] == 2
+
  
  
  
